@@ -1,0 +1,24 @@
+{
+    "idf.adapterTargetName": "esp32",
+    "idf.espIdfPath": "/home/embsysdev/espressif/esp-idf",
+    "idf.pythonBinPath": "/home/embsysdev/.espressif/python_env/idf5.1_py3.10_env/bin/python",
+    "idf.toolsPath": "/home/embsysdev/.espressif",
+    "idf.customExtraPaths": "/home/embsysdev/.espressif/tools/xtensa-esp-elf-gdb/12.1_20221002/xtensa-esp-elf-gdb/bin:/home/embsysdev/.espressif/tools/riscv32-esp-elf-gdb/12.1_20221002/riscv32-esp-elf-gdb/bin:/home/embsysdev/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin:/home/embsysdev/.espressif/tools/xtensa-esp32s2-elf/esp-12.2.0_20230208/xtensa-esp32s2-elf/bin:/home/embsysdev/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin:/home/embsysdev/.espressif/tools/riscv32-esp-elf/esp-12.2.0_20230208/riscv32-esp-elf/bin:/home/embsysdev/.espressif/tools/esp32ulp-elf/2.35_20220830/esp32ulp-elf/bin:/home/embsysdev/.espressif/tools/openocd-esp32/v0.12.0-esp32-20230419/openocd-esp32/bin:/home/embsysdev/.espressif/tools/esp-rom-elfs/20230320",
+    "idf.customExtraVars": {
+        "OPENOCD_SCRIPTS": "/home/embsysdev/.espressif/tools/openocd-esp32/v0.12.0-esp32-20230419/openocd-esp32/share/openocd/scripts",
+        "ESP_ROM_ELF_DIR": "/home/embsysdev/.espressif/tools/esp-rom-elfs/20230320/"
+    },
+    "idf.gitPath": "git",
+    "idf.openOcdConfigs": [
+        "interface/jlink.cfg",
+	    "target/esp32.cfg",
+        //"${workspaceFolder}/jlink.cfg",
+        //"${workspaceFolder}/esp32.cfg"
+    ],
+    //"idf.port": "/dev/ttyUSB0",
+    "idf.flashType": "JTAG",
+    "files.associations": {
+        "cstddef": "cpp",
+        "font8x8_basic.h": "c"
+    }
+}

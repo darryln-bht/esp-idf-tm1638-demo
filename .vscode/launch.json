@@ -1,0 +1,59 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ESP-IDF Debug: Launch",
+            "type": "espidf",
+            "request": "launch",
+            //"debugPort": 3333, // OpenOCD<->gdb port
+            "logLevel": 2, // OpenOCD logging level 0-5
+            "mode": "auto", // auto or manual
+            //"verifyAppBinBeforeDebug": false,
+            //"tmoScaleFactor": 1,
+            //"initGdbCommands": [
+            // "set remotetimeout 10000",
+            // "target remote :3333",
+            // "monitor reset halt",
+            // "flushregs",
+            // "thbreak app_main",
+            // "continue"
+            // //],
+            //"env": {
+            //    "CUSTOM_ENV_VAR": "SOME_VALUE"
+            //}
+            //"gdbinitFile": "${workspaceFolder}/gdbinit.custom"
+        }
+    ]
+}
+/*
+appOffset: Program start address offset from where to start debugging.
+
+debugPort: Port for ESP-IDF Debug Adapter. Default: 43474.
+
+env: Environment variables to apply to the ESP-IDF Debug Adapter. It will replace global environment variables and environment variables used by the extension.
+
+gdbinitFile: Specify the gdbinit file to send to gdb. Example value: "${workspaceFolder}/gdbinit".
+NOTE: By default, the gdbinit file is generated automatically by the ESP-IDF Debug Adapter.
+
+initGdbCommands: One or more xtensa-esp32-elf-gdb commands to execute in order to setup the underlying debugger.
+NOTE: If gdbinitFile is defined, these commands will be ignored.
+
+logLevel: Debug Adapter logging level (0-4), 5 - for a full OOCD log. Default: 2.
+mode: Can be either auto, to start the debug adapter and openOCD server within the extension or manual, to connect to existing debug adapter and openOCD session. Default: auto.
+NOTE: If set to manual, openOCD and ESP-IDF Debug Adapter have to be manually executed by the user and the extension will just try to connect to existing servers at configured ports.
+
+name: The name of the debug launch configuration. This will be shown in the Run view (Menu View -> Run).
+
+type: Type of debug configuration. It must be espidf.
+
+verifyAppBinBeforeDebug: (Default false) If enabled the extension will verify that the 
+current workspace folder build/${project-name}.bin is the same of the target device application. 
+${project-name} is the name of the project (i.e blink) and is obtained from the 
+build/project_description.json. Set this to true to add application binary validation 
+before debug session.
+
+tmoScaleFactor: Scale factor for gdb timeout. Default: 1.
+*/
