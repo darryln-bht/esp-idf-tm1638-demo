@@ -109,8 +109,6 @@ TM1638_WriteBytes(TM1638_Handler_t *Handler,
 {
   uint8_t i, j, Buff;
 
-  Handler->DioConfigOut();
-
   for (j = 0; j < NumOfBytes; j++)
   {
     for (i = 0, Buff = Data[j]; i < 8; ++i, Buff >>= 1)
@@ -148,6 +146,8 @@ TM1638_ReadBytes(TM1638_Handler_t *Handler,
     Data[j] = Buff;
     Handler->DelayUs(2);
   }
+    Handler->DioConfigOut();
+
 }
 
 static void

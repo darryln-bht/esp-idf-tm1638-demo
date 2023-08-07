@@ -103,6 +103,7 @@ TM1638_PlatformInit(void)
 #elif defined(TM1638_PLATFORM_ESP32_IDF)
   TM1638_SetGPIO_OUT(_clkPin);
   TM1638_SetGPIO_OUT(_stbPin);
+  TM1638_SetGPIO_OUT(_dioPin);
 #endif
 }
 
@@ -204,7 +205,6 @@ TM1638_StbWrite(uint8_t Level)
 #elif defined(TM1638_PLATFORM_STM32)
   HAL_GPIO_WritePin(TM1638_STB_GPIO, TM1638_STB_PIN, Level);
 #elif defined(TM1638_PLATFORM_ESP32_IDF)
-  //gpio_set_level(TM1638_STB_GPIO, Level);
   gpio_set_level(_stbPin, Level);
 #endif
 }

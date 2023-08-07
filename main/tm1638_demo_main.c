@@ -14,7 +14,7 @@
 static const char* TAG = "TM1638";
 
 #define BLINK_GPIO GPIO_NUM_5
-#define BLINK_PERIOD 200
+#define BLINK_PERIOD 500
 #define BLINK_PRINT FALSE
 #define BUTTON_GPIO GPIO_NUM_0
 
@@ -60,12 +60,9 @@ static void update_led(void) {
 }
 
 static void update_tm1638(void) {
-    if ((loopcount & 1) == 0)
-        return;
-
-    // Display a digit and decimal point
-    uint8_t digit = (loopcount >> 1) & 7;
-    TM1638_SetSingleDigit(&tm1638, digit, digit);
+    // Display a hex digit
+    uint8_t digit = (loopcount >> 1) & 0xf;
+    TM1638_SetSingleDigit_HEX(&tm1638, digit, digit & 7);
 }
 
 void app_main(void) {
