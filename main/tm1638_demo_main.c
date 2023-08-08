@@ -61,7 +61,7 @@ static void update_led(void) {
 
 static void update_tm1638(void) {
     // Display a hex digit
-    uint8_t digit = (loopcount >> 1) & 0xf;
+    uint8_t digit = loopcount & 0xf;
     TM1638_SetSingleDigit_HEX(&tm1638, digit, digit & 7);
 }
 
