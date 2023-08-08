@@ -77,13 +77,11 @@ void TM1638_SetGPIO_IN_PU(GPIO_TypeDef *GPIOx, uint32_t GPIO_Pin)
 #elif defined(TM1638_PLATFORM_ESP32_IDF)
 void TM1638_SetGPIO_OUT(gpio_num_t GPIO_Pad)
 {
-  gpio_reset_pin(GPIO_Pad);
   gpio_set_direction(GPIO_Pad, GPIO_MODE_OUTPUT);
 }
 
 void TM1638_SetGPIO_IN_PU(gpio_num_t GPIO_Pad)
 {
-  gpio_reset_pin(GPIO_Pad);
   gpio_set_direction(GPIO_Pad, GPIO_MODE_INPUT);
   gpio_set_pull_mode(GPIO_Pad, GPIO_PULLUP_ONLY);
 }
@@ -101,9 +99,18 @@ TM1638_PlatformInit(void)
   TM1638_SetGPIO_OUT(TM1638_STB_GPIO, TM1638_STB_PIN);
   TM1638_SetGPIO_OUT(TM1638_DIO_GPIO, TM1638_DIO_PIN);
 #elif defined(TM1638_PLATFORM_ESP32_IDF)
-  TM1638_SetGPIO_OUT(_clkPin);
-  TM1638_SetGPIO_OUT(_stbPin);
-  TM1638_SetGPIO_OUT(_dioPin);
+  gpio_reset_pin(_clkPin);
+  gpio_set_direction(_clkPin, GPIO_MODE_OUTPUT);
+  gpio_set_level(_clkPin, 1);
+
+  gpio_reset_pin(_stbPin);
+  gpio_set_direction(_stbPin, GPIO_MODE_OUTPUT);
+  gpio_set_level(_stbPin, 1);
+
+  gpio_reset_pin(_dioPin);
+  gpio_set_direction(_dioPin, GPIO_MODE_OUTPUT);
+  gpio_set_level(_dioPin, 1);
+
 #endif
 }
 
