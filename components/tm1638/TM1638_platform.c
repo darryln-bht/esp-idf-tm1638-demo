@@ -234,8 +234,13 @@ TM1638_DelayUs(uint8_t Delay)
  * @param  Handler: Pointer to handler
  * @retval None
  */
+#if defined(TM1638_PLATFORM_ESP32_IDF)
 void
 TM1638_Platform_Init(TM1638_Handler_t *Handler, uint8_t stbPin, uint8_t clkPin, uint8_t dioPin)
+#else
+void
+TM1638_Platform_Init(TM1638_Handler_t *Handler)
+#endif
 {
   Handler->PlatformInit = TM1638_PlatformInit;
   Handler->PlatformDeInit = TM1638_PlatformDeInit;
@@ -246,7 +251,9 @@ TM1638_Platform_Init(TM1638_Handler_t *Handler, uint8_t stbPin, uint8_t clkPin, 
   Handler->ClkWrite = TM1638_ClkWrite;
   Handler->StbWrite = TM1638_StbWrite;
   Handler->DelayUs = TM1638_DelayUs;
+#if defined(TM1638_PLATFORM_ESP32_IDF)
   _stbPin = (gpio_num_t) stbPin;
   _clkPin = (gpio_num_t) clkPin;
   _dioPin = (gpio_num_t) dioPin;
+#endif
 }
