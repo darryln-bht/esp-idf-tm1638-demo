@@ -50,7 +50,7 @@ static void configure_tm1638_module(void) {
         CONFIG_TM1638_CLK_GPIO, 
         CONFIG_TM1638_DIO_GPIO);
     TM1638_Init(&tm1638, TM1638DisplayTypeComCathode);
-    TM1638_ConfigDisplay(&tm1638, 7, TM1638DisplayStateON);
+    TM1638_ConfigDisplay(&tm1638, 0, TM1638DisplayStateON);
 }
 
 static void update_led(void) {
